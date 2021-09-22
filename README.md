@@ -2,6 +2,11 @@ TelemeTree is an open source library and program designed for Raspbian and Ardui
 
 </br>
 
+Visit us [here.](https://thesolarcats.com)
+----
+
+</br>
+
 Address:
 ----
    [1200 SW 136th Ave
