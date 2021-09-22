@@ -10,4 +10,4 @@ Developed by:
     WHS Solar Cats, https://github.com/WHSSolarCats
 --22.09.2021--
 Added main component of program, `Telemetree` and folder for future dependencies.
----------------------------------------------------------------
+'-------------------------------------------------------------'
