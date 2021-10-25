@@ -224,17 +224,14 @@ long decimalToBinary(long n) {
  
 // Increment the binary_rpm of pulses by 1
 void right_wheel_pulse() {
-   
   // Read the value for the encoder for the right wheel
   int val = digitalRead(ENC_IN_RIGHT_B);
- 
-  if(val == LOW) {
+  if (val == LOW) {
     Direction_right = false; // Reverse
   }
   else {
     Direction_right = true; // Forward
   }
-   
   if (Direction_right) {
     right_wheel_pulse_count++;
   }
