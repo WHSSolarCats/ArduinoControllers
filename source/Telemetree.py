@@ -36,15 +36,17 @@ def data(binary_speed):
 def loop():
     x = 0
     while (1>x):
-        binary_speed = [0,0,1,0,1]
+        binary_speed = [0,1,0,1,0,0]
         #count = 0
         '''while (not count):
             data(binary_speed)
             count += 1'''
-        string = [str(int) for int in binary_speed]
-        str_of = str("".join(string))
-        binary_data = int('$s'.format(str_of), 2)
-        print(binary_data)
+        bin = ""
+        for i in binary_speed:
+            
+            bin = str(i)+bin
+            binary_vel = int(bin, 2)
+        print(binary_vel)
         x+=1
 loop()
     
