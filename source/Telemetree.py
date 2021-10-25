@@ -33,21 +33,18 @@ def data(binary_speed):
     binary_speed.append(int(GPIO.input(19)))
     binary_speed.append(int(GPIO.input(21)))
     binary_speed.append(int(GPIO.input(23)))
-def loop():
-    x = 0
-    while (1>x):
-        binary_speed = [0,1,0,1,0,0]
-        #count = 0
-        '''while (not count):
+def get_angular_velocity():
+    while (1):
+        binary_speed = []
+        count = 0
+        while (not count):
             data(binary_speed)
-            count += 1'''
+            count += 1
         bin = ""
         for i in binary_speed:
-            
             bin = str(i)+bin
             binary_vel = int(bin, 2)
-        print(binary_vel)
-        x+=1
-loop()
-    
+        return binary_vel
+get_angular_velocity()
+
         

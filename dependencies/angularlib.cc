@@ -1,4 +1,3 @@
-
 #define ENC_COUNT_REV 600
 #define ENC_IN_RIGHT_A 2
 #define ENC_IN_RIGHT_B 4
@@ -196,12 +195,6 @@ void loop() {
         }
         else{
         digitalWrite(DATA15, LOW);
-        }
-    if (n16){
-        digitalWrite(DATA16, HIGH);
-        }
-        else{
-        digitalWrite(DATA16, LOW);
         }
     }
     // Reset the pulse count
