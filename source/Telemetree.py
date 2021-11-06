@@ -17,6 +17,7 @@ def setup():
     GPIO.setup(19, GPIO.IN)
     GPIO.setup(21, GPIO.IN)
     GPIO.setup(23, GPIO.IN)
+    
 def data(binary_speed):
     binary_speed.append(int(GPIO.input(11)))
     binary_speed.append(int(GPIO.input(13)))

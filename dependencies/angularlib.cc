@@ -32,7 +32,7 @@ float ang_velocity_right = 0;
 float ang_velocity_right_deg = 0;
  
  //variable for binary rpms
-long binary_rpm;
+int binary_rpm;
 void setup() {
   // Set pin states of the encoder
     pinMode(ENC_IN_RIGHT_A , INPUT_PULLUP);
@@ -73,7 +73,7 @@ void loop() {
     n6 = *binary_rpm%10;
     *binary_rpm /= 10;
     n7 = *binary_rpm%10;
-    
+    //output binary over GPIO
     if (n1){
         digitalWrite(DATA1, HIGH);
         }
