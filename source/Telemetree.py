@@ -45,3 +45,6 @@ def get_angular_velocity() -> int:
         bin = str(i)+bin;
         binary_vel = int(bin, 2);
     return binary_vel**2;
+def get_temperature():
+#binary to decimal; first bit indicates sign of integer
+return None;
