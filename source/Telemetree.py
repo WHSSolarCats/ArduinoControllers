@@ -21,8 +21,13 @@ def setup() -> None:
     GPIO.setup(18, GPIO.IN);
     GPIO.setup(22, GPIO.IN);
     GPIO.setup(7, GPIO.IN);
-
-    
+    #Temperature in
+    GPIO.setup(2, GPIO.IN);
+    GPIO.setup(3, GPIO.IN);
+    GPIO.setup(4, GPIO.IN);
+    GPIO.setup(17, GPIO.IN);
+    GPIO.setup(27, GPIO.IN);
+    GPIO.setup(22, GPIO.IN); 
 def speed_data(binary_speed) -> None:
     binary_speed.append(int(GPIO.input(11)));
     binary_speed.append(int(GPIO.input(13)));
@@ -47,4 +52,4 @@ def get_angular_velocity() -> int:
     return binary_vel**2;
 def get_temperature():
 #binary to decimal; first bit indicates sign of integer
-return None;
+    return None;
