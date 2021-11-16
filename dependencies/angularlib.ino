@@ -68,6 +68,7 @@ void loop() {
     *rpm_right_ptr = sqrt(*rpm_right_ptr);
     long binary_rpm_i = decimalToBinary(*rpm_right_ptr);
     long* binary_rpm = &binary_rpm_i;
+    //Split binary_rpm into 7 bits
     int n1,n2,n3,n4,n5,n6,n7,n8;
     n1 = *binary_rpm%10;*binary_rpm /= 10;
     n2 = *binary_rpm%10;*binary_rpm /= 10;
@@ -106,7 +107,13 @@ void right_wheel_pulse() {
   // Read the value for the encoder for the right wheel
   int val = digitalRead(ENC_IN_RIGHT_B);
   if (!val){
-    Direction_right = false;}else{Direction_right = true;}
-  if (Direction_right) {right_wheel_pulse_count++;
-  }else {right_wheel_pulse_count--;}
+    Direction_right = false;
+  }else{
+      Direction_right = true;
+  }
+  if (Direction_right){
+    right_wheel_pulse_count++;
+  }else {
+    right_wheel_pulse_count--;
+  }
 }
