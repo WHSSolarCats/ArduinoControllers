@@ -20,8 +20,6 @@
 #define DATA6 32
 #define DATA7 34
 //sign of vector
-#define DATA8 36
-
 
 
 // True = Forward; False = Reverse
