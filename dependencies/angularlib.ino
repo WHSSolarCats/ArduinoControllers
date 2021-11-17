@@ -19,8 +19,6 @@
 #define DATA5 30
 #define DATA6 32
 #define DATA7 34
-//sign of vector
-
 
 // True = Forward; False = Reverse
 bool Direction_right = true;
@@ -33,7 +31,6 @@ long previousMillis = 0;
 long currentMillis = 0;
 // Variable for RPM measurement
 float rpm_right = 0;
-float* rpm_right_ptr = &rpm_right;
 // Variable for angular velocity measurement
 float ang_velocity_right = 0;
 float ang_velocity_right_deg = 0;
@@ -64,19 +61,18 @@ void loop() {
   if (currentMillis - previousMillis > interval) {
     previousMillis = currentMillis;
     // Calculate revolutions per minute
-    *rpm_right_ptr = (float)(right_wheel_pulse_count * 60 / ENC_COUNT_REV);
-    *rpm_right_ptr = sqrt(*rpm_right_ptr);
-    long binary_rpm_i = decimalToBinary(*rpm_right_ptr);
-    long* binary_rpm = &binary_rpm_i;
+     rpm_right= (float)(right_wheel_pulse_count * 60 / ENC_COUNT_REV);
+     rpm_right= sqrt(rpm_right);
+    int binary_rpm = decimalToBinary(rpm_right);
     //Split binary_rpm into 7 bits
     int n1,n2,n3,n4,n5,n6,n7,n8;
-    n1 = *binary_rpm%10;*binary_rpm /= 10;
-    n2 = *binary_rpm%10;*binary_rpm /= 10;
-    n3 = *binary_rpm%10;*binary_rpm /= 10;
-    n4 = *binary_rpm%10;*binary_rpm /=10;
-    n5 = *binary_rpm%10;*binary_rpm /= 10;
-    n6 = *binary_rpm%10;*binary_rpm /= 10;
-    n7 = *binary_rpm%10;
+    n1 = binary_rpm%10;binary_rpm /= 10;
+    n2 = binary_rpm%10;binary_rpm /= 10;
+    n3 = binary_rpm%10;binary_rpm /= 10;
+    n4 = binary_rpm%10;binary_rpm /=10;
+    n5 = binary_rpm%10;binary_rpm /= 10;
+    n6 = binary_rpm%10;binary_rpm /= 10;
+    n7 = binary_rpm%10;
     //output binary over GPIO
     if (n1){digitalWrite(DATA1, HIGH);}else{digitalWrite(DATA1, LOW);}
     if (n2){digitalWrite(DATA2, HIGH);}else{digitalWrite(DATA2, LOW);}
@@ -90,9 +86,9 @@ void loop() {
   right_wheel_pulse_count = 0;
 }
 
-long decimalToBinary(long n) {
+int decimalToBinary(int n) {
     int remainder, m;
-    long binary = 0, i = 1;
+    int binary = 0, i = 1;
     while(n != 0) {
         remainder = n%2;
         n = n/2;
