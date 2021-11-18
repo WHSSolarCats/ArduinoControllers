@@ -1,5 +1,6 @@
 {
-    "port": "/dev/cu.Bluetooth-Incoming-Port",
+    "port": "/dev/cu.usbmodem141401",
     "board": "arduino:avr:uno",
-    "programmer": "arduino:usbasp"
+    "programmer": "arduino:usbasp",
+    "sketch": "dependencies/angularlib.ino"
 }

@@ -12,7 +12,7 @@
 
 
 //define the data bands up to 7 bits
-#define DATA1 22
+#define DATA1 5
 #define DATA2 24
 #define DATA3 26
 #define DATA4 28
