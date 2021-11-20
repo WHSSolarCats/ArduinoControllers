@@ -81,47 +81,30 @@ void right_wheel_pulse(){
   }
 }
 
-char velocity_array(){
+ char* velocity_array(){
   ang_velocity_right = get_angular_velocity();
   int angular_vel = decimalToBinary(ang_velocity_right);
   char *binary_vel = (char*)malloc(7);
   for (int i = 0; i < 8; i++) {
     if (angular_vel & (1 << i)) {
-      binary_vel[7-i] = '1';
+      binary_vel[7-i] = "1";
     }
     else {
-      binary_vel[7-i] = '0';
+      binary_vel[7-i] = "0";
     }
   }
-  return *binary_vel;
+  return binary_vel;
 }
 
 void loop(){
-  char velocity[] = {velocity_array()};
-  for (int i = 0; i < 8; i++) {
-    switch (velocity[i]) {
-      case '0':
-        digitalWrite(DATA1, LOW);
-        digitalWrite(DATA2, LOW);
-        digitalWrite(DATA3, LOW);
-        digitalWrite(DATA4, LOW);
-        digitalWrite(DATA5, LOW);
-        digitalWrite(DATA6, LOW);
-        digitalWrite(DATA7, LOW);
-        Serial.println("0");
-      
-        break;
-      case '1':
-        digitalWrite(DATA1, HIGH);
-        digitalWrite(DATA2, LOW);
-        digitalWrite(DATA3, LOW);
-        digitalWrite(DATA4, LOW);
-        digitalWrite(DATA5, LOW);
-        digitalWrite(DATA6, LOW);
-        digitalWrite(DATA7, LOW);
-        Serial.println("1");
-      	
-        break;
-  }
-  }
+  const char* velocity[] = {velocity_array()};
+
+    if (velocity[0] == "1"){digitalWrite(DATA1, HIGH);}else{digitalWrite(DATA1, LOW);}
+    if (velocity[1] == "1"){digitalWrite(DATA2, HIGH);}else{digitalWrite(DATA2, LOW);}
+    if (velocity[2] == "1"){digitalWrite(DATA3, HIGH);}else{digitalWrite(DATA3, LOW);}
+    if (velocity[3] == "1"){digitalWrite(DATA4, HIGH);}else{digitalWrite(DATA4, LOW);}
+    if (velocity[4] == "1"){digitalWrite(DATA5, HIGH);}else{digitalWrite(DATA5, LOW);}
+    if (velocity[5] == "1"){digitalWrite(DATA6, HIGH);}else{digitalWrite(DATA6, LOW);}
+    if (velocity[6] == "1"){digitalWrite(DATA7, HIGH);}else{digitalWrite(DATA7, LOW);}
+ 
 }
