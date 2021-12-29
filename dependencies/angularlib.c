@@ -50,6 +50,7 @@ void setup() {
     pinMode(DATA5, OUTPUT);
     pinMode(DATA6, OUTPUT);
     pinMode(DATA7, OUTPUT);
+    Serial.begin(9600);
     // Every time the pin goes high, this is a pulse
   attachInterrupt(digitalPinToInterrupt(ENC_IN_RIGHT_A), right_wheel_pulse, RISING);
 }
@@ -81,6 +82,8 @@ void loop() {
     if (n5){digitalWrite(DATA5, HIGH);}else{digitalWrite(DATA5, LOW);}
     if (n6){digitalWrite(DATA6, HIGH);}else{digitalWrite(DATA6, LOW);}
     if (n7){digitalWrite(DATA7, HIGH);}else{digitalWrite(DATA7, LOW);}
+    Serial.print("RPM: ");
+    Serial.print(rpm_right);
     }
     // Reset the pulse count
   right_wheel_pulse_count = 0;
