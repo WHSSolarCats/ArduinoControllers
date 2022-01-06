@@ -37,6 +37,9 @@ def speed_data(binary_speed) -> None:
     binary_speed.append(int(GPIO.input(22)));
     binary_speed.append(int(GPIO.input(7)));
 
+def bin_to_dec(bin) -> int:
+    return 0b(bin)
+
 
 #Uses inputs from GPIO to convert the binary data to an integer value from the angular velocity
 def get_angular_velocity() -> int:
